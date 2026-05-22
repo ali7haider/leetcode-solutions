@@ -117,3 +117,38 @@ function productExceptSelf(nums){
 }
 
 console.log("Product Except Self",productExceptSelf([4,6,8,9]))
+
+// Maximum Product Subarray
+function maxProdSubarray(arr){
+    let current=0
+    let max =0
+    for (let i=0;i<arr.length;i++){
+        const combined = arr[i]*current
+        if (combined>arr[i]){
+            current=combined
+        }else{
+            current=arr[i]
+        }
+        if (current>max){
+            max=current
+        }
+    }
+    return max
+}
+console.log(maxProdSubarray([2,3,-2,4]))
+
+//7. Find Minimum in Rotated Sorted Array
+function minRotate(arr){
+    let left=0
+    let right=arr.length-1
+    while (left<right){
+        let mid = Math.floor((left + right) / 2);
+        if (arr[mid]>arr[right]){
+            left=mid+1
+        }else{
+            right=mid
+        }
+    }
+    return arr[left]
+}
+console.log("Max min Rorate", minRotate([3,4,5,1,2]))
