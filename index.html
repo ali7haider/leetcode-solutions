@@ -1,0 +1,3253 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background: #eef2f5;
+        font-family:
+          "Inter",
+          -apple-system,
+          sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 36px;
+        padding: 40px 20px 80px;
+      }
+      .lbl {
+        color: #5e6f8d;
+        font-size: 12px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        background: rgba(255, 255, 255, 0.8);
+        padding: 5px 12px;
+        border-radius: 40px;
+        font-weight: 500;
+      }
+      .slide {
+        width: 540px;
+        height: 540px;
+        position: relative;
+        overflow: hidden;
+        flex-shrink: 0;
+        border-radius: 28px;
+        box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.08);
+      }
+      .badge {
+        position: absolute;
+        top: 24px;
+        right: 26px;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 11px;
+        font-weight: 500;
+        color: #b7c0cd;
+        background: rgba(255, 255, 255, 0.7);
+        padding: 3px 8px;
+        border-radius: 40px;
+        z-index: 10;
+      }
+      .tag {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 11px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        font-weight: 500;
+        margin-bottom: 10px;
+      }
+      .kw {
+        color: #7c3aed;
+        font-weight: 500;
+      }
+      .fn {
+        color: #0e7c5c;
+        font-weight: 500;
+      }
+      .str {
+        color: #b45309;
+      }
+      .cm {
+        color: #8da1bb;
+      }
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.2;
+        }
+      }
+      .hint {
+        color: #7c8da3;
+        font-size: 11px;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        font-family: "JetBrains Mono", monospace;
+        text-align: center;
+        margin-top: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <p class="lbl">swipe friendly — share on LinkedIn</p>
+
+    <!-- SLIDE 1 — Cover -->
+    <div class="slide" style="background: #fff">
+      <div
+        style="
+          position: absolute;
+          inset: 0;
+          background-image:
+            linear-gradient(#e9edf2 1px, transparent 1px),
+            linear-gradient(90deg, #e9edf2 1px, transparent 1px);
+          background-size: 32px 32px;
+          opacity: 0.5;
+        "
+      ></div>
+      <div
+        style="
+          position: absolute;
+          width: 340px;
+          height: 340px;
+          border-radius: 50%;
+          background: radial-gradient(
+            circle,
+            rgba(79, 70, 229, 0.08) 0%,
+            transparent 70%
+          );
+          top: -90px;
+          left: -70px;
+        "
+      ></div>
+      <div
+        style="
+          position: absolute;
+          right: 32px;
+          top: 50%;
+          transform: translateY(-50%);
+          font-family: &quot;JetBrains Mono&quot;, monospace;
+          font-size: 130px;
+          font-weight: 700;
+          color: #eef2ff;
+          line-height: 1;
+          z-index: 1;
+          letter-spacing: -8px;
+          user-select: none;
+        "
+      >
+        EC
+      </div>
+      <div
+        style="
+          position: relative;
+          z-index: 2;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: flex-start;
+          height: 100%;
+          padding: 48px;
+        "
+      >
+        <div
+          style="
+            font-family: &quot;JetBrains Mono&quot;, monospace;
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            background: #f0f4fe;
+            color: #4f46e5;
+            padding: 5px 12px;
+            border-radius: 40px;
+            margin-bottom: 28px;
+            font-weight: 500;
+          "
+        >
+          JavaScript for beginners
+        </div>
+        <h1
+          style="
+            font-weight: 800;
+            font-size: 46px;
+            line-height: 1.08;
+            color: #0b1c2e;
+            margin-bottom: 18px;
+            letter-spacing: -1.2px;
+          "
+        >
+          How JavaScript<br />Actually <span style="color: #4f46e5">Runs</span>
+        </h1>
+        <p
+          style="
+            font-size: 14px;
+            color: #5a6e8a;
+            line-height: 1.6;
+            max-width: 320px;
+            margin-bottom: 34px;
+          "
+        >
+          From the engine inside your browser, all the way to Execution Context,
+          Hoisting, Scope, and Closures — explained from scratch.
+        </p>
+        <div
+          style="
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: &quot;JetBrains Mono&quot;, monospace;
+            font-size: 11px;
+            color: #8a9bb0;
+          "
+        >
+          <span
+            style="
+              width: 6px;
+              height: 6px;
+              border-right: 2px solid #4f46e5;
+              border-top: 2px solid #4f46e5;
+              transform: rotate(45deg);
+              display: inline-block;
+              animation: pulse 1.4s ease infinite;
+            "
+          ></span>
+          Swipe to learn
+        </div>
+      </div>
+      <div
+        style="
+          position: absolute;
+          bottom: 36px;
+          left: 30px;
+          display: flex;
+          gap: 8px;
+          flex-wrap: wrap;
+        "
+      >
+        <div
+          style="
+            font-size: 11px;
+            padding: 4px 14px;
+            border-radius: 40px;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            color: #2c3e58;
+            font-weight: 500;
+          "
+        >
+          JS Engine
+        </div>
+        <div
+          style="
+            font-size: 11px;
+            padding: 4px 14px;
+            border-radius: 40px;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            color: #2c3e58;
+            font-weight: 500;
+          "
+        >
+          Execution Context
+        </div>
+
+        <div
+          style="
+            font-size: 11px;
+            padding: 4px 14px;
+            border-radius: 40px;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            color: #2c3e58;
+            font-weight: 500;
+          "
+        >
+          Hoisting
+        </div>
+        <div
+          style="
+            font-size: 11px;
+            padding: 4px 14px;
+            border-radius: 40px;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            color: #2c3e58;
+            font-weight: 500;
+          "
+        >
+          Scope Chain
+        </div>
+        <div
+          style="
+            font-size: 11px;
+            padding: 4px 14px;
+            border-radius: 40px;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            color: #2c3e58;
+            font-weight: 500;
+          "
+        >
+          Closures
+        </div>
+      </div>
+      <div class="badge">1 / 16</div>
+    </div>
+
+    <!-- SLIDE 2 — Computers don't understand JS -->
+    <div class="slide" style="background: #fff">
+      <div
+        style="
+          padding: 44px;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          position: relative;
+          z-index: 2;
+        "
+      >
+        <div class="tag" style="color: #4f46e5">01 — The Problem</div>
+        <h2
+          style="
+            font-weight: 800;
+            font-size: 30px;
+            color: #0b1c2e;
+            margin-bottom: 20px;
+            letter-spacing: -0.4px;
+          "
+        >
+          Computers don't understand
+          <span style="color: #4f46e5">JavaScript</span>
+        </h2>
+        <div
+          style="
+            background: #fafcff;
+            border: 1px solid #e6edf4;
+            border-radius: 20px;
+            padding: 20px 24px;
+            margin-bottom: 18px;
+          "
+        >
+          <div
+            style="
+              display: flex;
+              align-items: center;
+              gap: 14px;
+              margin-bottom: 14px;
+              padding-bottom: 14px;
+              border-bottom: 1px solid #ecf1f6;
+            "
+          >
+            <div
+              style="
+                width: 40px;
+                height: 40px;
+                border-radius: 12px;
+                background: #f1f5f9;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-weight: 700;
+                font-size: 14px;
+                color: #4f46e5;
+                flex-shrink: 0;
+              "
+            >
+              JS
+            </div>
+            <div>
+              <div
+                style="
+                  font-weight: 700;
+                  font-size: 14px;
+                  color: #1e2f44;
+                  margin-bottom: 3px;
+                "
+              >
+                Your JavaScript code
+              </div>
+              <div
+                style="
+                  font-family: &quot;JetBrains Mono&quot;, monospace;
+                  font-size: 11px;
+                  color: #6c7f99;
+                "
+              >
+                Human-readable. Computers can't run this directly.
+              </div>
+            </div>
+          </div>
+          <div style="display: flex; align-items: center; gap: 14px">
+            <div
+              style="
+                width: 40px;
+                height: 40px;
+                border-radius: 12px;
+                background: #f1f5f9;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-weight: 700;
+                font-size: 11px;
+                color: #10b981;
+                flex-shrink: 0;
+              "
+            >
+              01
+            </div>
+            <div>
+              <div
+                style="
+                  font-weight: 700;
+                  font-size: 14px;
+                  color: #1e2f44;
+                  margin-bottom: 3px;
+                "
+              >
+                Machine language (binary)
+              </div>
+              <div
+                style="
+                  font-family: &quot;JetBrains Mono&quot;, monospace;
+                  font-size: 11px;
+                  color: #6c7f99;
+                "
+              >
+                What the computer actually understands.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          style="
+            background: #fff7ed;
+            border: 1px solid #ffedd5;
+            border-radius: 18px;
+            padding: 14px 18px;
+            font-size: 13px;
+            color: #78350f;
+            line-height: 1.55;
+          "
+        >
+          Something inside the browser must
+          <strong style="color: #92400e">translate</strong> your JavaScript into
+          binary so your computer can actually run it. That translator is called
+          the <strong style="color: #92400e">JavaScript Engine</strong>.
+        </div>
+      </div>
+      <div class="badge">2 / 16</div>
+    </div>
+
+    <!-- SLIDE 3 — The JavaScript Engine -->
+    <div class="slide" style="background: #fff">
+      <div
+        style="
+          padding: 44px;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+        "
+      >
+        <div class="tag" style="color: #4f46e5">02 — The Translator</div>
+        <h2
+          style="
+            font-weight: 800;
+            font-size: 29px;
+            color: #0b1c2e;
+            margin-bottom: 8px;
+            letter-spacing: -0.4px;
+          "
+        >
+          The <span style="color: #4f46e5">JavaScript Engine</span>
+        </h2>
+        <p style="font-size: 12px; color: #6c7f99; margin-bottom: 20px">
+          Every browser ships with one. They all do the same job.
+        </p>
+        <div
+          style="
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 16px;
+          "
+        >
+          <div
+            style="
+              background: #f0f4fe;
+              border: 1px solid #e0e7ff;
+              border-radius: 16px;
+              padding: 14px 16px;
+            "
+          >
+            <div
+              style="
+                font-family: &quot;JetBrains Mono&quot;, monospace;
+                font-size: 10px;
+                color: #4f46e5;
+                letter-spacing: 1px;
+                text-transform: uppercase;
+                margin-bottom: 6px;
+              "
+            >
+              Chrome + Node.js
+            </div>
+            <div
+              style="
+                font-weight: 700;
+                font-size: 16px;
+                color: #1e2f44;
+                margin-bottom: 4px;
+              "
+            >
+              V8
+            </div>
+            <div style="font-size: 12px; color: #3d556e; line-height: 1.5">
+              Built by Google in 2008. Written in C++. Extremely fast. Node.js
+              uses this same engine outside the browser.
+            </div>
+          </div>
+          <div
+            style="
+              background: #f8fafc;
+              border: 1px solid #e2edf7;
+              border-radius: 16px;
+              padding: 14px 16px;
+            "
+          >
+            <div
+              style="
+                font-family: &quot;JetBrains Mono&quot;, monospace;
+                font-size: 10px;
+                color: #6c7f99;
+                letter-spacing: 1px;
+                text-transform: uppercase;
+                margin-bottom: 6px;
+              "
+            >
+              Other browsers
+            </div>
+            <div
+              style="
+                font-weight: 700;
+                font-size: 13px;
+                color: #1e2f44;
+                margin-bottom: 4px;
+              "
+            >
+              SpiderMonkey / JSCore / Chakra
+            </div>
+            <div style="font-size: 12px; color: #3d556e; line-height: 1.5">
+              Firefox, Safari, IE each have their own engine. All follow the
+              ECMAScript standard, so they behave the same way.
+            </div>
+          </div>
+        </div>
+        <div
+          style="
+            background: #ecfdf5;
+            border: 1px solid #d1fae5;
+            border-radius: 16px;
+            padding: 14px 18px;
+            font-size: 13px;
+            color: #1f4a3d;
+            line-height: 1.55;
+          "
+        >
+          <strong style="color: #0e7c5c">Node.js insight:</strong> Ryan Dahl
+          took Chrome's V8 engine and ran it outside the browser. That is
+          literally how Node.js was created — V8 was already the best engine in
+          existence, so he reused it.
+        </div>
+      </div>
+      <div class="badge">3 / 16</div>
+    </div>
+
+    <!-- SLIDE 4 — Interpretation vs Compilation -->
+    <div class="slide" style="background: #fefefe">
+      <div
+        style="
+          position: absolute;
+          inset: 0;
+          background-image: radial-gradient(#dce5ef 1.2px, transparent 1.2px);
+          background-size: 22px 22px;
+          opacity: 0.5;
+        "
+      ></div>
+      <div
+        style="
+          padding: 40px 42px;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          position: relative;
+          z-index: 2;
+        "
+      >
+        <div class="tag" style="color: #f59e0b">
+          03 — How Engines Translate Code
+        </div>
+        <h2
+          style="
+            font-weight: 800;
+            font-size: 26px;
+            color: #0b1c2e;
+            margin-bottom: 18px;
+            letter-spacing: -0.3px;
+          "
+        >
+          Interpretation vs <span style="color: #f59e0b">Compilation</span>
+        </h2>
+        <div
+          style="
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            flex: 1;
+          "
+        >
+          <div
+            style="
+              background: #fff1f2;
+              border: 1px solid #ffe4e6;
+              border-radius: 18px;
+              padding: 16px;
+            "
+          >
+            <div
+              style="
+                font-family: &quot;JetBrains Mono&quot;, monospace;
+                font-size: 10px;
+                color: #e11d48;
+                letter-spacing: 1.5px;
+                text-transform: uppercase;
+                margin-bottom: 8px;
+              "
+            >
+              Interpretation
+            </div>
+            <div
+              style="
+                font-weight: 700;
+                font-size: 14px;
+                color: #1e2f44;
+                margin-bottom: 10px;
+              "
+            >
+              Line by line
+            </div>
+            <div
+              style="
+                font-size: 12px;
+                color: #3d556e;
+                line-height: 1.55;
+                margin-bottom: 8px;
+              "
+            >
+              Reads one line, translates it, runs it. Then moves to the next.
+            </div>
+            <div
+              style="
+                font-size: 12px;
+                color: #3d556e;
+                line-height: 1.55;
+                margin-bottom: 8px;
+              "
+            >
+              Good: stops exactly at an error. Easy to debug.
+            </div>
+            <div style="font-size: 12px; color: #e11d48; line-height: 1.55">
+              Bad: slow — constant switching between reading and running.
+            </div>
+          </div>
+          <div
+            style="
+              background: #ecfdf5;
+              border: 1px solid #d1fae5;
+              border-radius: 18px;
+              padding: 16px;
+            "
+          >
+            <div
+              style="
+                font-family: &quot;JetBrains Mono&quot;, monospace;
+                font-size: 10px;
+                color: #10b981;
+                letter-spacing: 1.5px;
+                text-transform: uppercase;
+                margin-bottom: 8px;
+              "
+            >
+              Compilation
+            </div>
+            <div
+              style="
+                font-weight: 700;
+                font-size: 14px;
+                color: #1e2f44;
+                margin-bottom: 10px;
+              "
+            >
+              All at once
+            </div>
+            <div
+              style="
+                font-size: 12px;
+                color: #3d556e;
+                line-height: 1.55;
+                margin-bottom: 8px;
+              "
+            >
+              Translates the entire program first, then runs the output.
+            </div>
+            <div
+              style="
+                font-size: 12px;
+                color: #3d556e;
+                line-height: 1.55;
+                margin-bottom: 8px;
+              "
+            >
+              Good: much faster execution.
+            </div>
+            <div style="font-size: 12px; color: #e11d48; line-height: 1.55">
+              Bad: if there's a bug, you only find it after running — and it can
+              crash the system.
+            </div>
+          </div>
+        </div>
+        <div
+          style="
+            margin-top: 14px;
+            background: #fffbeb;
+            border: 1px solid #fef3c7;
+            border-radius: 14px;
+            padding: 11px 15px;
+            font-size: 12px;
+            color: #78350f;
+            line-height: 1.5;
+          "
+        >
+          JavaScript used to be purely interpreted (slow). Modern engines use a
+          hybrid called
+          <strong style="color: #92400e">JIT compilation</strong> to get the
+          best of both.
+        </div>
+      </div>
+      <div class="badge">4 / 16</div>
+    </div>
+
+    <!-- SLIDE 5 — JIT Compilation -->
+    <div class="slide" style="background: #fff">
+      <div
+        style="
+          padding: 44px;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+        "
+      >
+        <div class="tag" style="color: #4f46e5">04 — The Modern Approach</div>
+        <h2
+          style="
+            font-weight: 800;
+            font-size: 28px;
+            color: #0b1c2e;
+            margin-bottom: 8px;
+            letter-spacing: -0.3px;
+          "
+        >
+          <span style="color: #4f46e5">JIT Compilation</span> — Best of Both
+          Worlds
+        </h2>
+        <p style="font-size: 12px; color: #6c7f99; margin-bottom: 20px">
+          Just-In-Time. Popularized by Google's V8 engine in 2008.
+        </p>
+        <div style="display: flex; flex-direction: column; gap: 10px; flex: 1">
+          <div
+            style="
+              display: flex;
+              align-items: flex-start;
+              gap: 14px;
+              background: #f0f4fe;
+              border: 1px solid #e0e7ff;
+              border-radius: 16px;
+              padding: 14px 16px;
+            "
+          >
+            <div
+              style="
+                width: 28px;
+                height: 28px;
+                border-radius: 40px;
+                background: #e0e7ff;
+                color: #4f46e5;
+                font-weight: 700;
+                font-size: 13px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-shrink: 0;
+              "
+            >
+              1
+            </div>
+            <div style="font-size: 13px; color: #3d556e; line-height: 1.55">
+              <strong style="color: #1e2f44">Start by interpreting.</strong> The
+              engine interprets your code immediately so it starts running right
+              away. Errors are caught precisely.
+            </div>
+          </div>
+          <div
+            style="
+              display: flex;
+              align-items: flex-start;
+              gap: 14px;
+              background: #ecfdf5;
+              border: 1px solid #d1fae5;
+              border-radius: 16px;
+              padding: 14px 16px;
+            "
+          >
+            <div
+              style="
+                width: 28px;
+                height: 28px;
+                border-radius: 40px;
+                background: #d1fae5;
+                color: #10b981;
+                font-weight: 700;
+                font-size: 13px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-shrink: 0;
+              "
+            >
+              2
+            </div>
+            <div style="font-size: 13px; color: #3d556e; line-height: 1.55">
+              <strong style="color: #1e2f44">Watch what actually runs.</strong>
+              The engine monitors which functions are used most often — those
+              are the "hot" code paths.
+            </div>
+          </div>
+          <div
+            style="
+              display: flex;
+              align-items: flex-start;
+              gap: 14px;
+              background: #fff7ed;
+              border: 1px solid #ffedd5;
+              border-radius: 16px;
+              padding: 14px 16px;
+            "
+          >
+            <div
+              style="
+                width: 28px;
+                height: 20px;
+                border-radius: 40px;
+                background: #ffedd5;
+                color: #f59e0b;
+                font-weight: 700;
+                font-size: 13px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-shrink: 0;
+              "
+            >
+              3
+            </div>
+            <div style="font-size: 13px; color: #3d556e; line-height: 1.55">
+              <strong style="color: #1e2f44">Compile the hot parts.</strong>
+              Only frequently-used code gets compiled to machine code for
+              maximum speed. Everything else stays interpreted.
+            </div>
+          </div>
+        </div>
+        <div
+          style="
+            margin-top: 4px;
+            background: #fafcff;
+            border: 1px solid #e2edf7;
+            border-radius: 14px;
+            padding: 11px 15px;
+            font-size: 12px;
+            color: #2c3e58;
+            line-height: 1.5;
+          "
+        >
+          Result: fast execution, precise error messages. This is how JavaScript
+          runs today — in both browsers and Node.js.
+        </div>
+      </div>
+      <div class="badge">5 / 16</div>
+    </div>
+
+    <!-- SLIDE 6 — What is Execution Context -->
+    <div class="slide" style="background: #fff">
+      <div
+        style="
+          padding: 44px;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+        "
+      >
+        <div class="tag" style="color: #4f46e5">05 — The Core Concept</div>
+        <h2
+          style="
+            font-weight: 800;
+            font-size: 28px;
+            color: #0b1c2e;
+            margin-bottom: 8px;
+            letter-spacing: -0.3px;
+          "
+        >
+          What is an <span style="color: #4f46e5">Execution Context?</span>
+        </h2>
+        <p style="font-size: 12px; color: #6c7f99; margin-bottom: 18px">
+          The engine does not run your entire program as one block. It breaks it
+          into smaller pieces and runs each one inside its own isolated
+          environment.
+        </p>
+        <div
+          style="
+            background: #fafcff;
+            border: 1px solid #e6edf4;
+            border-radius: 20px;
+            padding: 20px 22px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            margin-bottom: 16px;
+          "
+        >
+          <div style="display: flex; align-items: center; gap: 14px">
+            <div
+              style="
+                width: 38px;
+                height: 38px;
+                border-radius: 12px;
+                background: #f1f5f9;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 13px;
+                font-weight: 700;
+                color: #4f46e5;
+                flex-shrink: 0;
+              "
+            >
+              V
+            </div>
+            <div>
+              <div
+                style="
+                  font-weight: 700;
+                  font-size: 13px;
+                  color: #1e2f44;
+                  margin-bottom: 3px;
+                "
+              >
+                Variable Environment
+              </div>
+              <div
+                style="
+                  font-family: &quot;JetBrains Mono&quot;, monospace;
+                  font-size: 11px;
+                  color: #6c7f99;
+                "
+              >
+                Memory space for all variables and functions declared in this
+                piece of code
+              </div>
+            </div>
+          </div>
+          <div style="height: 1px; background: #ecf1f6"></div>
+          <div style="display: flex; align-items: center; gap: 14px">
+            <div
+              style="
+                width: 38px;
+                height: 38px;
+                border-radius: 12px;
+                background: #f1f5f9;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 13px;
+                font-weight: 700;
+                color: #10b981;
+                flex-shrink: 0;
+              "
+            >
+              S
+            </div>
+            <div>
+              <div
+                style="
+                  font-weight: 700;
+                  font-size: 13px;
+                  color: #1e2f44;
+                  margin-bottom: 3px;
+                "
+              >
+                Scope Chain
+              </div>
+              <div
+                style="
+                  font-family: &quot;JetBrains Mono&quot;, monospace;
+                  font-size: 11px;
+                  color: #6c7f99;
+                "
+              >
+                A link to the outer environment, so you can access variables
+                defined outside
+              </div>
+            </div>
+          </div>
+          <div style="height: 1px; background: #ecf1f6"></div>
+          <div style="display: flex; align-items: center; gap: 14px">
+            <div
+              style="
+                width: 38px;
+                height: 38px;
+                border-radius: 12px;
+                background: #f1f5f9;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 13px;
+                font-weight: 700;
+                color: #f59e0b;
+                flex-shrink: 0;
+              "
+            >
+              T
+            </div>
+            <div>
+              <div
+                style="
+                  font-weight: 700;
+                  font-size: 13px;
+                  color: #1e2f44;
+                  margin-bottom: 3px;
+                "
+              >
+                this Binding
+              </div>
+              <div
+                style="
+                  font-family: &quot;JetBrains Mono&quot;, monospace;
+                  font-size: 11px;
+                  color: #6c7f99;
+                "
+              >
+                Points to the object this code is associated with
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          style="
+            background: #f0fdf4;
+            border: 1px solid #d1fae5;
+            border-radius: 16px;
+            padding: 13px 16px;
+            font-size: 12px;
+            color: #1f4a3d;
+            line-height: 1.5;
+          "
+        >
+          Think of an Execution Context like a
+          <strong style="color: #0e7c5c">restaurant table</strong>. Each table
+          has its own setup, its own order. But everyone shares the same kitchen
+          (global scope).
+        </div>
+      </div>
+      <div class="badge">6 / 16</div>
+    </div>
+
+    <!-- SLIDE 7 — Global Execution Context -->
+    <div class="slide" style="background: #fefefe">
+      <div
+        style="
+          position: absolute;
+          inset: 0;
+          background-image: radial-gradient(#dce5ef 1.2px, transparent 1.2px);
+          background-size: 22px 22px;
+          opacity: 0.4;
+        "
+      ></div>
+      <div
+        style="
+          padding: 40px 42px;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          position: relative;
+          z-index: 2;
+        "
+      >
+        <div class="tag" style="color: #f59e0b">06 — The First Context</div>
+        <h2
+          style="
+            font-weight: 800;
+            font-size: 27px;
+            color: #0b1c2e;
+            margin-bottom: 8px;
+            letter-spacing: -0.3px;
+          "
+        >
+          The <span style="color: #f59e0b">Global Execution Context</span>
+        </h2>
+        <p style="font-size: 12px; color: #6c7f99; margin-bottom: 18px">
+          Created automatically, before a single line of your code runs.
+        </p>
+        <div
+          style="
+            background: #fffbeb;
+            border: 1px solid #fef3c7;
+            border-radius: 18px;
+            padding: 16px 18px;
+            margin-bottom: 14px;
+          "
+        >
+          <div
+            style="
+              font-family: &quot;JetBrains Mono&quot;, monospace;
+              font-size: 10px;
+              color: #92400e;
+              letter-spacing: 1px;
+              text-transform: uppercase;
+              margin-bottom: 10px;
+            "
+          >
+            Inside the Global EC from the start
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 8px">
+            <div style="display: flex; align-items: center; gap: 10px">
+              <div
+                style="
+                  width: 6px;
+                  height: 6px;
+                  border-radius: 50%;
+                  background: #f59e0b;
+                  flex-shrink: 0;
+                "
+              ></div>
+              <div style="font-size: 13px; color: #3d556e">
+                <code style="font-size: 12px; color: #92400e">window</code>
+                object — the global object in browsers
+              </div>
+            </div>
+            <div style="display: flex; align-items: center; gap: 10px">
+              <div
+                style="
+                  width: 6px;
+                  height: 6px;
+                  border-radius: 50%;
+                  background: #f59e0b;
+                  flex-shrink: 0;
+                "
+              ></div>
+              <div style="font-size: 13px; color: #3d556e">
+                <code style="font-size: 12px; color: #92400e">this</code> —
+                initially points to
+                <code style="font-size: 12px; color: #92400e">window</code>
+              </div>
+            </div>
+            <div style="display: flex; align-items: center; gap: 10px">
+              <div
+                style="
+                  width: 6px;
+                  height: 6px;
+                  border-radius: 50%;
+                  background: #f59e0b;
+                  flex-shrink: 0;
+                "
+              ></div>
+              <div style="font-size: 13px; color: #3d556e">
+                Variable Object — will hold all your declared variables and
+                functions
+              </div>
+            </div>
+            <div style="display: flex; align-items: center; gap: 10px">
+              <div
+                style="
+                  width: 6px;
+                  height: 6px;
+                  border-radius: 50%;
+                  background: #f59e0b;
+                  flex-shrink: 0;
+                "
+              ></div>
+              <div style="font-size: 13px; color: #3d556e">
+                Scope Chain — links to outer scopes (initially none, since this
+                is the outermost)
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          style="
+            background: #f0f4fe;
+            border: 1px solid #e0e7ff;
+            border-radius: 16px;
+            padding: 13px 16px;
+            font-size: 12px;
+            color: #3d556e;
+            line-height: 1.5;
+          "
+        >
+          This context is created even if your JavaScript file is completely
+          empty. It is the foundation that every other piece of code runs on top
+          of.
+        </div>
+        <div
+          style="
+            margin-top: 12px;
+            background: #ecfdf5;
+            border: 1px solid #d1fae5;
+            border-radius: 16px;
+            padding: 11px 16px;
+            font-size: 12px;
+            color: #1f4a3d;
+            line-height: 1.5;
+          "
+        >
+          In Node.js, <code style="font-size: 11px">window</code> is replaced by
+          <code style="font-size: 11px">global</code>. The concept is identical.
+        </div>
+      </div>
+      <div class="badge">7 / 16</div>
+    </div>
+
+    <!-- SLIDE 8 — 2 Phases -->
+    <div class="slide" style="background: #fff">
+      <div
+        style="
+          padding: 40px 42px;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+        "
+      >
+        <div class="tag" style="color: #f59e0b">07 — The Lifecycle</div>
+        <h2
+          style="
+            font-weight: 800;
+            font-size: 27px;
+            color: #0b1c2e;
+            margin-bottom: 16px;
+            letter-spacing: -0.3px;
+          "
+        >
+          Every EC has <span style="color: #f59e0b">2 Phases</span>
+        </h2>
+        <div
+          style="
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+            font-family: &quot;JetBrains Mono&quot;, monospace;
+            font-size: 10px;
+            color: #8d9bb0;
+          "
+        >
+          <div
+            style="
+              flex: 1;
+              height: 1px;
+              background: linear-gradient(90deg, transparent, #fbbf24);
+            "
+          ></div>
+          <span>Creation Phase then Execution Phase</span>
+          <div
+            style="
+              flex: 1;
+              height: 1px;
+              background: linear-gradient(90deg, #fbbf24, transparent);
+            "
+          ></div>
+        </div>
+        <div
+          style="
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            flex: 1;
+          "
+        >
+          <div
+            style="
+              background: #f1f5fe;
+              border: 1px solid #e0e7ff;
+              border-radius: 18px;
+              padding: 18px 16px;
+              display: flex;
+              flex-direction: column;
+              gap: 9px;
+            "
+          >
+            <div
+              style="
+                font-family: &quot;JetBrains Mono&quot;, monospace;
+                font-size: 10px;
+                color: #4f46e5;
+                letter-spacing: 1.5px;
+                text-transform: uppercase;
+              "
+            >
+              Phase 1
+            </div>
+            <div
+              style="
+                font-weight: 800;
+                font-size: 17px;
+                color: #1e2f44;
+                margin-bottom: 4px;
+              "
+            >
+              Creation
+            </div>
+            <div
+              style="
+                display: flex;
+                align-items: flex-start;
+                gap: 8px;
+                font-size: 12px;
+                color: #3d556e;
+                line-height: 1.45;
+              "
+            >
+              <div
+                style="
+                  width: 6px;
+                  height: 6px;
+                  border-radius: 50%;
+                  background: #4f46e5;
+                  margin-top: 5px;
+                  flex-shrink: 0;
+                "
+              ></div>
+              Memory is allocated for all variables
+            </div>
+            <div
+              style="
+                display: flex;
+                align-items: flex-start;
+                gap: 8px;
+                font-size: 12px;
+                color: #3d556e;
+                line-height: 1.45;
+              "
+            >
+              <div
+                style="
+                  width: 6px;
+                  height: 6px;
+                  border-radius: 50%;
+                  background: #4f46e5;
+                  margin-top: 5px;
+                  flex-shrink: 0;
+                "
+              ></div>
+              var declarations are set to undefined
+            </div>
+            <div
+              style="
+                display: flex;
+                align-items: flex-start;
+                gap: 8px;
+                font-size: 12px;
+                color: #3d556e;
+                line-height: 1.45;
+              "
+            >
+              <div
+                style="
+                  width: 6px;
+                  height: 6px;
+                  border-radius: 50%;
+                  background: #4f46e5;
+                  margin-top: 5px;
+                  flex-shrink: 0;
+                "
+              ></div>
+              Full function bodies are stored in memory
+            </div>
+            <div
+              style="
+                display: flex;
+                align-items: flex-start;
+                gap: 8px;
+                font-size: 12px;
+                color: #3d556e;
+                line-height: 1.45;
+              "
+            >
+              <div
+                style="
+                  width: 6px;
+                  height: 6px;
+                  border-radius: 50%;
+                  background: #4f46e5;
+                  margin-top: 5px;
+                  flex-shrink: 0;
+                "
+              ></div>
+              Scope chain and this are set up
+            </div>
+            <div
+              style="
+                font-size: 11px;
+                color: #6c7f99;
+                margin-top: 4px;
+                font-style: italic;
+              "
+            >
+              No code executes yet.
+            </div>
+          </div>
+          <div
+            style="
+              background: #ecfdf5;
+              border: 1px solid #d1fae5;
+              border-radius: 18px;
+              padding: 18px 16px;
+              display: flex;
+              flex-direction: column;
+              gap: 9px;
+            "
+          >
+            <div
+              style="
+                font-family: &quot;JetBrains Mono&quot;, monospace;
+                font-size: 10px;
+                color: #10b981;
+                letter-spacing: 1.5px;
+                text-transform: uppercase;
+              "
+            >
+              Phase 2
+            </div>
+            <div
+              style="
+                font-weight: 800;
+                font-size: 17px;
+                color: #1e2f44;
+                margin-bottom: 4px;
+              "
+            >
+              Execution
+            </div>
+            <div
+              style="
+                display: flex;
+                align-items: flex-start;
+                gap: 8px;
+                font-size: 12px;
+                color: #3d556e;
+                line-height: 1.45;
+              "
+            >
+              <div
+                style="
+                  width: 6px;
+                  height: 6px;
+                  border-radius: 50%;
+                  background: #10b981;
+                  margin-top: 5px;
+                  flex-shrink: 0;
+                "
+              ></div>
+              Code runs top to bottom, line by line
+            </div>
+            <div
+              style="
+                display: flex;
+                align-items: flex-start;
+                gap: 8px;
+                font-size: 12px;
+                color: #3d556e;
+                line-height: 1.45;
+              "
+            >
+              <div
+                style="
+                  width: 6px;
+                  height: 6px;
+                  border-radius: 50%;
+                  background: #10b981;
+                  margin-top: 5px;
+                  flex-shrink: 0;
+                "
+              ></div>
+              Variables receive their actual assigned values
+            </div>
+            <div
+              style="
+                display: flex;
+                align-items: flex-start;
+                gap: 8px;
+                font-size: 12px;
+                color: #3d556e;
+                line-height: 1.45;
+              "
+            >
+              <div
+                style="
+                  width: 6px;
+                  height: 6px;
+                  border-radius: 50%;
+                  background: #10b981;
+                  margin-top: 5px;
+                  flex-shrink: 0;
+                "
+              ></div>
+              Expressions and statements are evaluated
+            </div>
+            <div
+              style="
+                display: flex;
+                align-items: flex-start;
+                gap: 8px;
+                font-size: 12px;
+                color: #3d556e;
+                line-height: 1.45;
+              "
+            >
+              <div
+                style="
+                  width: 6px;
+                  height: 6px;
+                  border-radius: 50%;
+                  background: #10b981;
+                  margin-top: 5px;
+                  flex-shrink: 0;
+                "
+              ></div>
+              Function calls create brand-new Execution Contexts
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="badge">8 / 16</div>
+    </div>
+
+    <!-- SLIDE 9 — Hoisting explained simply -->
+    <div class="slide" style="background: #fff">
+      <div
+        style="
+          padding: 36px 40px;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+        "
+      >
+        <div class="tag" style="color: #e11d48">08 — Hoisting</div>
+        <h2
+          style="
+            font-weight: 800;
+            font-size: 26px;
+            color: #0b1c2e;
+            margin-bottom: 6px;
+            letter-spacing: -0.3px;
+          "
+        >
+          <span style="color: #e11d48">Hoisting</span> — the real explanation
+        </h2>
+        <p style="font-size: 12px; color: #6c7f99; margin-bottom: 14px">
+          You may have heard "variables are moved to the top." That is a
+          simplification. Here is what actually happens.
+        </p>
+        <div
+          style="
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            flex: 1;
+          "
+        >
+          <div
+            style="
+              background: #fafcff;
+              border: 1px solid #e9eff5;
+              border-radius: 16px;
+              overflow: hidden;
+            "
+          >
+            <div
+              style="
+                padding: 9px 13px;
+                display: flex;
+                align-items: center;
+                gap: 7px;
+                border-bottom: 1px solid #edf2f7;
+                background: #f8fafc;
+              "
+            >
+              <div
+                style="
+                  width: 9px;
+                  height: 9px;
+                  border-radius: 50%;
+                  background: #e11d48;
+                "
+              ></div>
+              <div
+                style="
+                  width: 9px;
+                  height: 9px;
+                  border-radius: 50%;
+                  background: #f59e0b;
+                "
+              ></div>
+              <div
+                style="
+                  width: 9px;
+                  height: 9px;
+                  border-radius: 50%;
+                  background: #10b981;
+                "
+              ></div>
+              <span
+                style="
+                  font-family: &quot;JetBrains Mono&quot;, monospace;
+                  font-size: 10px;
+                  color: #6c7f99;
+                "
+                >what you write</span
+              >
+            </div>
+            <div
+              style="
+                padding: 13px;
+                font-family: &quot;JetBrains Mono&quot;, monospace;
+                font-size: 10px;
+                line-height: 1.7;
+                color: #2c3f5c;
+              "
+            >
+              <div
+                style="
+                  background: #ffe8ed;
+                  border-left: 2px solid #e11d48;
+                  padding-left: 6px;
+                "
+              >
+                <span class="fn">greet</span>();
+                <span class="cm">// runs? yes!</span>
+              </div>
+              <div
+                style="
+                  background: #ffe8ed;
+                  border-left: 2px solid #e11d48;
+                  padding-left: 6px;
+                "
+              >
+                <span class="kw">console</span>.log(x);
+                <span class="cm">// undefined</span>
+              </div>
+              <br />
+              <span class="kw">var</span> x = <span class="str">5</span>;<br />
+              <br />
+              <span class="kw">function</span> <span class="fn">greet</span>()
+              {<br />
+              &nbsp;&nbsp;<span class="kw">return</span>
+              <span class="str">"Hello"</span>;<br />
+              }
+            </div>
+          </div>
+          <div
+            style="
+              background: #fafcff;
+              border: 1px solid #e9eff5;
+              border-radius: 16px;
+              overflow: hidden;
+            "
+          >
+            <div
+              style="
+                padding: 9px 13px;
+                display: flex;
+                align-items: center;
+                gap: 7px;
+                border-bottom: 1px solid #edf2f7;
+                background: #f8fafc;
+              "
+            >
+              <div
+                style="
+                  width: 9px;
+                  height: 9px;
+                  border-radius: 50%;
+                  background: #e11d48;
+                "
+              ></div>
+              <div
+                style="
+                  width: 9px;
+                  height: 9px;
+                  border-radius: 50%;
+                  background: #f59e0b;
+                "
+              ></div>
+              <div
+                style="
+                  width: 9px;
+                  height: 9px;
+                  border-radius: 50%;
+                  background: #10b981;
+                "
+              ></div>
+              <span
+                style="
+                  font-family: &quot;JetBrains Mono&quot;, monospace;
+                  font-size: 10px;
+                  color: #6c7f99;
+                "
+                >what the engine does</span
+              >
+            </div>
+            <div
+              style="
+                padding: 13px;
+                font-family: &quot;JetBrains Mono&quot;, monospace;
+                font-size: 10px;
+                line-height: 1.7;
+                color: #2c3f5c;
+              "
+            >
+              <span class="cm">// — Creation Phase —</span><br />
+              <div
+                style="
+                  background: #eaf9ed;
+                  border-left: 2px solid #10b981;
+                  padding-left: 6px;
+                "
+              >
+                <span class="kw">var</span> x =
+                <span class="str">undefined</span>;
+              </div>
+              <div
+                style="
+                  background: #eaf9ed;
+                  border-left: 2px solid #10b981;
+                  padding-left: 6px;
+                "
+              >
+                <span class="kw">function</span> <span class="fn">greet</span>()
+                { ... }
+              </div>
+              <br />
+              <span class="cm">// — Execution Phase —</span><br />
+              <span class="fn">greet</span>();
+              <span class="cm">// found in memory</span><br />
+              <span class="kw">console</span>.log(x);
+              <span class="cm">// undefined</span><br />
+              x = <span class="str">5</span>;
+              <span class="cm">// now assigned</span>
+            </div>
+          </div>
+        </div>
+        <div
+          style="
+            margin-top: 12px;
+            background: #fff7ed;
+            border: 1px solid #ffedd5;
+            border-radius: 14px;
+            padding: 10px 14px;
+            font-size: 12px;
+            color: #78350f;
+            line-height: 1.5;
+          "
+        >
+          During the Creation Phase, <code style="font-size: 11px">x</code> was
+          already placed in memory with
+          <code style="font-size: 11px">undefined</code>. The function was fully
+          stored. That is why both can be referenced before their written
+          position.
+        </div>
+      </div>
+      <div class="badge">9 / 16</div>
+    </div>
+
+    <!-- SLIDE 10 — var vs let vs const / TDZ -->
+    <div class="slide" style="background: #fefefe">
+      <div
+        style="
+          padding: 40px 42px;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+        "
+      >
+        <div class="tag" style="color: #e11d48">09 — A Critical Difference</div>
+        <h2
+          style="
+            font-weight: 800;
+            font-size: 25px;
+            color: #0b1c2e;
+            margin-bottom: 6px;
+            letter-spacing: -0.3px;
+          "
+        >
+          <code style="color: #e11d48">var</code> vs
+          <code style="color: #8b5cf6">let</code> and
+          <code style="color: #8b5cf6">const</code>
+        </h2>
+        <p style="font-size: 12px; color: #6c7f99; margin-bottom: 16px">
+          They all declare variables, but their behavior during the Creation
+          Phase is different.
+        </p>
+        <div
+          style="
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 14px;
+          "
+        >
+          <div
+            style="
+              background: #fff7ed;
+              border: 1px solid #ffedd5;
+              border-radius: 16px;
+              padding: 14px 16px;
+            "
+          >
+            <div
+              style="
+                font-family: &quot;JetBrains Mono&quot;, monospace;
+                font-size: 11px;
+                color: #92400e;
+                font-weight: 600;
+                margin-bottom: 8px;
+              "
+            >
+              var (ES5 — old)
+            </div>
+            <div
+              style="
+                font-size: 12px;
+                color: #3d556e;
+                line-height: 1.55;
+                margin-bottom: 6px;
+              "
+            >
+              During Creation Phase, JS sets it to
+              <code style="font-size: 11px">undefined</code> automatically.
+            </div>
+            <div
+              style="
+                font-size: 12px;
+                color: #3d556e;
+                line-height: 1.55;
+                margin-bottom: 6px;
+              "
+            >
+              You can reference it before the declaration line. You get
+              <code style="font-size: 11px">undefined</code>, not an error.
+            </div>
+            <div style="font-size: 12px; color: #92400e; line-height: 1.55">
+              ES5 design: avoid crashing, use undefined as a safe fallback.
+            </div>
+          </div>
+          <div
+            style="
+              background: #fdf4ff;
+              border: 1px solid #f3e8ff;
+              border-radius: 16px;
+              padding: 14px 16px;
+            "
+          >
+            <div
+              style="
+                font-family: &quot;JetBrains Mono&quot;, monospace;
+                font-size: 11px;
+                color: #6b21a8;
+                font-weight: 600;
+                margin-bottom: 8px;
+              "
+            >
+              let / const (ES6 — modern)
+            </div>
+            <div
+              style="
+                font-size: 12px;
+                color: #3d556e;
+                line-height: 1.55;
+                margin-bottom: 6px;
+              "
+            >
+              During Creation Phase, JS allocates memory but keeps them in the
+              <strong style="color: #6b21a8">Temporal Dead Zone</strong>.
+            </div>
+            <div
+              style="
+                font-size: 12px;
+                color: #3d556e;
+                line-height: 1.55;
+                margin-bottom: 6px;
+              "
+            >
+              You cannot access them before the declaration line. You get a
+              <code style="font-size: 11px">ReferenceError</code>.
+            </div>
+            <div style="font-size: 12px; color: #6b21a8; line-height: 1.55">
+              ES6 design: be strict, catch bugs early, don't fake
+              initialization.
+            </div>
+          </div>
+        </div>
+        <div
+          style="
+            background: #fff1f2;
+            border: 1px solid #ffe4e6;
+            border-radius: 16px;
+            padding: 13px 16px;
+          "
+        >
+          <div
+            style="
+              font-weight: 700;
+              font-size: 13px;
+              color: #b91c1c;
+              margin-bottom: 5px;
+            "
+          >
+            What is the Temporal Dead Zone?
+          </div>
+          <div style="font-size: 12px; color: #3d556e; line-height: 1.55">
+            The period between a variable being created in memory (Creation
+            Phase) and the line where it is actually declared (Execution Phase).
+            During this window, the variable exists but is completely
+            inaccessible. Like a locked phone — it's there, but you can't use it
+            yet.
+          </div>
+        </div>
+      </div>
+      <div class="badge">10 / 16</div>
+    </div>
+
+    <!-- SLIDE 11 — Function Execution Context -->
+    <div class="slide" style="background: #fff">
+      <div
+        style="
+          padding: 40px 42px;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+        "
+      >
+        <div class="tag" style="color: #10b981">
+          10 — A New Context Per Call
+        </div>
+        <h2
+          style="
+            font-weight: 800;
+            font-size: 26px;
+            color: #0b1c2e;
+            margin-bottom: 8px;
+            letter-spacing: -0.3px;
+          "
+        >
+          The <span style="color: #10b981">Function</span> Execution Context
+        </h2>
+        <p style="font-size: 12px; color: #6c7f99; margin-bottom: 18px">
+          Every single time a function is called, JavaScript creates a brand-new
+          Execution Context for it.
+        </p>
+        <div
+          style="
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 14px;
+          "
+        >
+          <div
+            style="
+              background: #f0f4fe;
+              border: 1px solid #e0e7ff;
+              border-radius: 16px;
+              padding: 14px 16px;
+            "
+          >
+            <div
+              style="
+                font-family: &quot;JetBrains Mono&quot;, monospace;
+                font-size: 10px;
+                color: #4f46e5;
+                letter-spacing: 1px;
+                text-transform: uppercase;
+                margin-bottom: 7px;
+              "
+            >
+              Global EC
+            </div>
+            <div
+              style="
+                font-weight: 700;
+                font-size: 13px;
+                color: #1e2f44;
+                margin-bottom: 8px;
+              "
+            >
+              Created once at startup
+            </div>
+            <div style="font-size: 12px; color: #3d556e; line-height: 1.55">
+              Contains the <code style="font-size: 11px">window</code> object
+              and <code style="font-size: 11px">this</code> pointing to it
+            </div>
+          </div>
+          <div
+            style="
+              background: #ecfdf5;
+              border: 1px solid #d1fae5;
+              border-radius: 16px;
+              padding: 14px 16px;
+            "
+          >
+            <div
+              style="
+                font-family: &quot;JetBrains Mono&quot;, monospace;
+                font-size: 10px;
+                color: #10b981;
+                letter-spacing: 1px;
+                text-transform: uppercase;
+                margin-bottom: 7px;
+              "
+            >
+              Function EC
+            </div>
+            <div
+              style="
+                font-weight: 700;
+                font-size: 13px;
+                color: #1e2f44;
+                margin-bottom: 8px;
+              "
+            >
+              Created on every function call
+            </div>
+            <div style="font-size: 12px; color: #3d556e; line-height: 1.55">
+              Instead of <code style="font-size: 11px">window</code>, it creates
+              an <code style="font-size: 11px">arguments</code> object — this
+              holds all the values you passed in when calling the function
+            </div>
+          </div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 8px">
+          <div
+            style="
+              background: #fafcff;
+              border: 1px solid #e2edf7;
+              border-radius: 14px;
+              padding: 11px 14px;
+              font-size: 12px;
+              color: #2c3e58;
+              line-height: 1.5;
+            "
+          >
+            Everything else is identical — it has its own Variable Object, its
+            own Scope Chain, and its own
+            <code style="font-size: 11px">this</code>. Hoisting works exactly
+            the same way inside a function as it does globally.
+          </div>
+          <div
+            style="
+              background: #fff7ed;
+              border: 1px solid #ffedd5;
+              border-radius: 14px;
+              padding: 11px 14px;
+              font-size: 12px;
+              color: #78350f;
+              line-height: 1.5;
+            "
+          >
+            When the function finishes, its entire Execution Context — including
+            its Variable Object and Scope Chain — is
+            <strong style="color: #92400e">destroyed</strong>. The variables
+            inside it no longer exist.
+          </div>
+        </div>
+      </div>
+      <div class="badge">11 / 16</div>
+    </div>
+
+    <!-- SLIDE 12 — Call Stack -->
+    <div class="slide" style="background: #fefefe">
+      <div
+        style="
+          padding: 38px 42px;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+        "
+      >
+        <div class="tag" style="color: #8b5cf6">11 — Keeping Track</div>
+        <h2
+          style="
+            font-weight: 800;
+            font-size: 27px;
+            color: #0b1c2e;
+            margin-bottom: 6px;
+            letter-spacing: -0.3px;
+          "
+        >
+          The <span style="color: #8b5cf6">Call Stack</span>
+        </h2>
+        <p style="font-size: 12px; color: #6c7f99; margin-bottom: 16px">
+          When functions call other functions, multiple Execution Contexts exist
+          simultaneously. JavaScript needs to track all of them.
+        </p>
+        <div style="display: flex; gap: 20px; align-items: flex-start; flex: 1">
+          <div style="flex-shrink: 0">
+            <div
+              style="
+                font-family: &quot;JetBrains Mono&quot;, monospace;
+                font-size: 10px;
+                color: #8d9bb0;
+                text-align: center;
+                margin-bottom: 8px;
+                letter-spacing: 2px;
+                text-transform: uppercase;
+              "
+            >
+              Call Stack
+            </div>
+            <div
+              style="
+                width: 160px;
+                border: 1px solid #e9eff5;
+                border-radius: 14px;
+                overflow: hidden;
+                background: white;
+              "
+            >
+              <div
+                style="
+                  padding: 11px 13px;
+                  border-bottom: 1px solid #f1f5f9;
+                  font-family: &quot;JetBrains Mono&quot;, monospace;
+                  font-size: 11px;
+                  display: flex;
+                  align-items: center;
+                  gap: 9px;
+                  color: #2c3e58;
+                  background: #f5f3ff;
+                "
+              >
+                <div
+                  style="
+                    width: 8px;
+                    height: 8px;
+                    border-radius: 50%;
+                    background: #8b5cf6;
+                    box-shadow: 0 0 0 2px #e9d5ff;
+                    flex-shrink: 0;
+                  "
+                ></div>
+                three()
+              </div>
+              <div
+                style="
+                  padding: 11px 13px;
+                  border-bottom: 1px solid #f1f5f9;
+                  font-family: &quot;JetBrains Mono&quot;, monospace;
+                  font-size: 11px;
+                  display: flex;
+                  align-items: center;
+                  gap: 9px;
+                  color: #2c3e58;
+                "
+              >
+                <div
+                  style="
+                    width: 8px;
+                    height: 8px;
+                    border-radius: 50%;
+                    background: #f59e0b;
+                    flex-shrink: 0;
+                  "
+                ></div>
+                two()
+              </div>
+              <div
+                style="
+                  padding: 11px 13px;
+                  border-bottom: 1px solid #f1f5f9;
+                  font-family: &quot;JetBrains Mono&quot;, monospace;
+                  font-size: 11px;
+                  display: flex;
+                  align-items: center;
+                  gap: 9px;
+                  color: #2c3e58;
+                "
+              >
+                <div
+                  style="
+                    width: 8px;
+                    height: 8px;
+                    border-radius: 50%;
+                    background: #10b981;
+                    flex-shrink: 0;
+                  "
+                ></div>
+                one()
+              </div>
+              <div
+                style="
+                  padding: 11px 13px;
+                  font-family: &quot;JetBrains Mono&quot;, monospace;
+                  font-size: 11px;
+                  display: flex;
+                  align-items: center;
+                  gap: 9px;
+                  color: #2c3e58;
+                "
+              >
+                <div
+                  style="
+                    width: 8px;
+                    height: 8px;
+                    border-radius: 50%;
+                    background: #4f46e5;
+                    flex-shrink: 0;
+                  "
+                ></div>
+                Global EC
+              </div>
+              <div
+                style="
+                  padding: 7px;
+                  text-align: center;
+                  font-family: &quot;JetBrains Mono&quot;, monospace;
+                  font-size: 9px;
+                  color: #b9c4d4;
+                  background: #fafcff;
+                "
+              >
+                JS Engine
+              </div>
+            </div>
+            <div
+              style="
+                margin-top: 10px;
+                display: inline-flex;
+                align-items: center;
+                gap: 7px;
+                background: #f3f4fe;
+                border: 1px solid #dfe3fa;
+                border-radius: 40px;
+                padding: 7px 13px;
+                font-family: &quot;JetBrains Mono&quot;, monospace;
+                font-size: 10px;
+                color: #4f46e5;
+              "
+            >
+              Last In, First Out
+            </div>
+          </div>
+          <div style="flex: 1; display: flex; flex-direction: column; gap: 7px">
+            <div style="display: flex; align-items: flex-start; gap: 9px">
+              <div
+                style="
+                  width: 22px;
+                  height: 22px;
+                  border-radius: 40px;
+                  background: #e0e7ff;
+                  color: #4f46e5;
+                  font-family: &quot;JetBrains Mono&quot;, monospace;
+                  font-size: 10px;
+                  font-weight: 700;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  flex-shrink: 0;
+                "
+              >
+                1
+              </div>
+              <div style="font-size: 12px; color: #3d556e; line-height: 1.5">
+                Script starts.
+                <strong style="color: #0b1c2e">Global EC</strong> is placed at
+                the bottom. It never leaves until the program is fully done.
+              </div>
+            </div>
+            <div style="display: flex; align-items: flex-start; gap: 9px">
+              <div
+                style="
+                  width: 22px;
+                  height: 22px;
+                  border-radius: 40px;
+                  background: #dcfce7;
+                  color: #10b981;
+                  font-family: &quot;JetBrains Mono&quot;, monospace;
+                  font-size: 10px;
+                  font-weight: 700;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  flex-shrink: 0;
+                "
+              >
+                2
+              </div>
+              <div style="font-size: 12px; color: #3d556e; line-height: 1.5">
+                <strong style="color: #0b1c2e">one()</strong> is called. A new
+                Function EC is pushed on top.
+              </div>
+            </div>
+            <div style="display: flex; align-items: flex-start; gap: 9px">
+              <div
+                style="
+                  width: 22px;
+                  height: 22px;
+                  border-radius: 40px;
+                  background: #fff3e3;
+                  color: #f59e0b;
+                  font-family: &quot;JetBrains Mono&quot;, monospace;
+                  font-size: 10px;
+                  font-weight: 700;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  flex-shrink: 0;
+                "
+              >
+                3
+              </div>
+              <div style="font-size: 12px; color: #3d556e; line-height: 1.5">
+                <strong style="color: #0b1c2e">two()</strong> is called inside
+                one. Pushed on top again.
+              </div>
+            </div>
+            <div style="display: flex; align-items: flex-start; gap: 9px">
+              <div
+                style="
+                  width: 22px;
+                  height: 22px;
+                  border-radius: 40px;
+                  background: #ede9fe;
+                  color: #8b5cf6;
+                  font-family: &quot;JetBrains Mono&quot;, monospace;
+                  font-size: 10px;
+                  font-weight: 700;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  flex-shrink: 0;
+                "
+              >
+                4
+              </div>
+              <div style="font-size: 12px; color: #3d556e; line-height: 1.5">
+                <strong style="color: #0b1c2e">three()</strong> is currently at
+                the top — it is the one executing right now.
+              </div>
+            </div>
+            <div style="display: flex; align-items: flex-start; gap: 9px">
+              <div
+                style="
+                  width: 22px;
+                  height: 22px;
+                  border-radius: 40px;
+                  background: #f1f5f9;
+                  color: #617188;
+                  font-family: &quot;JetBrains Mono&quot;, monospace;
+                  font-size: 10px;
+                  font-weight: 700;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  flex-shrink: 0;
+                "
+              >
+                5
+              </div>
+              <div style="font-size: 12px; color: #3d556e; line-height: 1.5">
+                Each function returns. Its EC is
+                <strong style="color: #0b1c2e">popped</strong> in reverse order
+                — three, two, one, then Global.
+              </div>
+            </div>
+            <div
+              style="
+                background: #fff1f2;
+                border: 1px solid #ffe4e6;
+                border-radius: 12px;
+                padding: 8px 12px;
+                font-size: 11px;
+                color: #4a5568;
+                margin-top: 2px;
+              "
+            >
+              Stack Overflow: too many nested calls — usually caused by a
+              function that calls itself forever (infinite recursion).
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="badge">12 / 16</div>
+    </div>
+
+    <!-- SLIDE 13 — Scope -->
+    <div class="slide" style="background: #fff">
+      <div
+        style="
+          padding: 40px 42px;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+        "
+      >
+        <div class="tag" style="color: #10b981">12 — Scope</div>
+        <h2
+          style="
+            font-weight: 800;
+            font-size: 27px;
+            color: #0b1c2e;
+            margin-bottom: 6px;
+            letter-spacing: -0.3px;
+          "
+        >
+          Why <span style="color: #10b981">Scope</span> works the way it does
+        </h2>
+        <p style="font-size: 12px; color: #6c7f99; margin-bottom: 16px">
+          Variables only exist inside the Execution Context they were created
+          in.
+        </p>
+        <div
+          style="
+            background: #f8fafc;
+            border: 1px solid #e9eff5;
+            border-radius: 14px;
+            padding: 12px 14px;
+            font-family: &quot;JetBrains Mono&quot;, monospace;
+            font-size: 10px;
+            line-height: 1.7;
+            color: #2c3f5c;
+            margin-bottom: 8px;
+          "
+        >
+          <span class="kw">function</span> <span class="fn">hello</span>() {<br />
+          &nbsp;&nbsp;<span class="kw">var</span> message =
+          <span class="str">"hello world"</span>;<br />
+          }<br />
+          <span class="fn">hello</span>();<br />
+          <span class="kw">console</span>.log(message);
+          <span class="cm">// ReferenceError!</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 9px; flex: 1">
+          <div
+            style="
+              display: flex;
+              align-items: flex-start;
+              gap: 10px;
+              background: #f0f4fe;
+              border: 1px solid #e0e7ff;
+              border-radius: 14px;
+              padding: 12px 14px;
+            "
+          >
+            <div
+              style="
+                width: 22px;
+                height: 22px;
+                border-radius: 40px;
+                background: #e0e7ff;
+                color: #4f46e5;
+                font-size: 11px;
+                font-weight: 700;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-shrink: 0;
+              "
+            >
+              1
+            </div>
+            <div style="font-size: 12px; color: #3d556e; line-height: 1.5">
+              <code style="font-size: 11px">hello()</code> is called. A Function
+              EC is created. <code style="font-size: 11px">message</code> is
+              added to its Variable Object. The function runs and finishes.
+            </div>
+          </div>
+          <div
+            style="
+              display: flex;
+              align-items: flex-start;
+              gap: 10px;
+              background: #fff1f2;
+              border: 1px solid #ffe4e6;
+              border-radius: 14px;
+              padding: 12px 14px;
+            "
+          >
+            <div
+              style="
+                width: 22px;
+                height: 22px;
+                border-radius: 40px;
+                background: #ffe4e6;
+                color: #e11d48;
+                font-size: 11px;
+                font-weight: 700;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-shrink: 0;
+              "
+            >
+              2
+            </div>
+            <div style="font-size: 12px; color: #3d556e; line-height: 1.5">
+              When <code style="font-size: 11px">hello()</code> finishes, its EC
+              is <strong style="color: #b91c1c">destroyed</strong> — along with
+              <code style="font-size: 11px">message</code>. The variable no
+              longer exists in memory.
+            </div>
+          </div>
+          <div
+            style="
+              display: flex;
+              align-items: flex-start;
+              gap: 10px;
+              background: #ecfdf5;
+              border: 1px solid #d1fae5;
+              border-radius: 14px;
+              padding: 12px 14px;
+            "
+          >
+            <div
+              style="
+                width: 22px;
+                height: 22px;
+                border-radius: 40px;
+                background: #d1fae5;
+                color: #10b981;
+                font-size: 11px;
+                font-weight: 700;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-shrink: 0;
+              "
+            >
+              3
+            </div>
+            <div style="font-size: 12px; color: #3d556e; line-height: 1.5">
+              The Global EC tries to read
+              <code style="font-size: 11px">message</code>. It is not in global
+              memory. It was never there. The result:
+              <code style="font-size: 11px">ReferenceError</code>.
+            </div>
+          </div>
+        </div>
+        <div
+          style="
+            margin-top: 4px;
+            background: #fafcff;
+            border: 1px solid #e2edf7;
+            border-radius: 14px;
+            padding: 10px 14px;
+            font-size: 12px;
+            color: #2c3e58;
+            line-height: 1.5;
+          "
+        >
+          A child scope can always access its parent. A parent scope can never
+          access its child. This rule comes directly from how Execution Contexts
+          are structured.
+        </div>
+      </div>
+      <div class="badge">13 / 16</div>
+    </div>
+
+    <!-- SLIDE 14 — Scope Chain -->
+    <div class="slide" style="background: #fff">
+      <div
+        style="
+          padding: 40px 42px;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+        "
+      >
+        <div class="tag" style="color: #10b981">13 — Variable Lookup</div>
+        <h2
+          style="
+            font-weight: 800;
+            font-size: 27px;
+            color: #0b1c2e;
+            margin-bottom: 6px;
+            letter-spacing: -0.3px;
+          "
+        >
+          The <span style="color: #10b981">Scope Chain</span>
+        </h2>
+        <p style="font-size: 12px; color: #6c7f99; margin-bottom: 18px">
+          When the engine can't find a variable in the current scope, it climbs
+          outward — one scope at a time — until it finds it or runs out of
+          scopes.
+        </p>
+        <div style="display: flex; flex-direction: column; gap: 0; flex: 1">
+          <div
+            style="
+              background: #fff1f2;
+              border: 1px solid #ffe4e6;
+              border-radius: 16px;
+              padding: 12px 15px;
+            "
+          >
+            <div
+              style="
+                font-family: &quot;JetBrains Mono&quot;, monospace;
+                font-size: 10px;
+                color: #e11d48;
+                letter-spacing: 1px;
+                text-transform: uppercase;
+                margin-bottom: 7px;
+                font-weight: 600;
+              "
+            >
+              Inner function — three()
+            </div>
+            <div style="display: flex; gap: 7px; flex-wrap: wrap">
+              <span
+                style="
+                  font-family: &quot;JetBrains Mono&quot;, monospace;
+                  font-size: 11px;
+                  padding: 3px 10px;
+                  border-radius: 40px;
+                  background: #fff;
+                  border: 1px solid #e2e8f0;
+                  color: #334155;
+                "
+                >d = 4</span
+              ><span
+                style="
+                  font-family: &quot;JetBrains Mono&quot;, monospace;
+                  font-size: 11px;
+                  padding: 3px 10px;
+                  border-radius: 40px;
+                  background: #fff1f2;
+                  border: 1px solid #ffd9df;
+                  color: #b91c1c;
+                "
+                >looking for b — not here, checking outer</span
+              >
+            </div>
+          </div>
+          <div
+            style="
+              display: flex;
+              justify-content: center;
+              padding: 4px 0;
+              font-family: &quot;JetBrains Mono&quot;, monospace;
+              font-size: 10px;
+              color: #a0aec0;
+            "
+          >
+            ↓ not found — following scope chain
+          </div>
+          <div
+            style="
+              background: #fff7ed;
+              border: 1px solid #ffedd5;
+              border-radius: 16px;
+              padding: 12px 15px;
+            "
+          >
+            <div
+              style="
+                font-family: &quot;JetBrains Mono&quot;, monospace;
+                font-size: 10px;
+                color: #f59e0b;
+                letter-spacing: 1px;
+                text-transform: uppercase;
+                margin-bottom: 7px;
+                font-weight: 600;
+              "
+            >
+              Outer function — two()
+            </div>
+            <div style="display: flex; gap: 7px; flex-wrap: wrap">
+              <span
+                style="
+                  font-family: &quot;JetBrains Mono&quot;, monospace;
+                  font-size: 11px;
+                  padding: 3px 10px;
+                  border-radius: 40px;
+                  background: #ecfdf5;
+                  border: 1px solid #b9f5d0;
+                  color: #166534;
+                "
+                >b = 2 — found here</span
+              >
+            </div>
+          </div>
+          <div
+            style="
+              display: flex;
+              justify-content: center;
+              padding: 4px 0;
+              font-family: &quot;JetBrains Mono&quot;, monospace;
+              font-size: 10px;
+              color: #a0aec0;
+            "
+          >
+            If not found, would check one(), then Global
+          </div>
+          <div
+            style="
+              background: #ecfdf5;
+              border: 1px solid #dcfce7;
+              border-radius: 16px;
+              padding: 12px 15px;
+            "
+          >
+            <div
+              style="
+                font-family: &quot;JetBrains Mono&quot;, monospace;
+                font-size: 10px;
+                color: #10b981;
+                letter-spacing: 1px;
+                text-transform: uppercase;
+                margin-bottom: 7px;
+                font-weight: 600;
+              "
+            >
+              Global scope
+            </div>
+            <div style="display: flex; gap: 7px; flex-wrap: wrap">
+              <span
+                style="
+                  font-family: &quot;JetBrains Mono&quot;, monospace;
+                  font-size: 11px;
+                  padding: 3px 10px;
+                  border-radius: 40px;
+                  background: #fff;
+                  border: 1px solid #e2e8f0;
+                  color: #334155;
+                "
+                >a = 1</span
+              ><span
+                style="
+                  font-family: &quot;JetBrains Mono&quot;, monospace;
+                  font-size: 11px;
+                  padding: 3px 10px;
+                  border-radius: 40px;
+                  background: #fff;
+                  border: 1px solid #e2e8f0;
+                  color: #334155;
+                "
+                >window</span
+              >
+            </div>
+          </div>
+        </div>
+        <div
+          style="
+            margin-top: 12px;
+            background: #fafcff;
+            border: 1px solid #e2edf7;
+            border-radius: 14px;
+            padding: 10px 14px;
+            font-size: 12px;
+            color: #2c3e58;
+            line-height: 1.5;
+          "
+        >
+          This is called
+          <strong style="color: #4f46e5">lexical scoping</strong> — scope is
+          determined by where code is written, not where it is called from. The
+          chain is established during the Creation Phase.
+        </div>
+      </div>
+      <div class="badge">14 / 16</div>
+    </div>
+
+    <!-- SLIDE 15 — Closures -->
+    <div class="slide" style="background: #fff">
+      <div
+        style="
+          padding: 38px 42px;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+        "
+      >
+        <div class="tag" style="color: #f59e0b">14 — Closures</div>
+        <h2
+          style="
+            font-weight: 800;
+            font-size: 27px;
+            color: #0b1c2e;
+            margin-bottom: 6px;
+            letter-spacing: -0.3px;
+          "
+        >
+          How <span style="color: #f59e0b">Closures</span> Actually Form
+        </h2>
+        <p style="font-size: 12px; color: #6c7f99; margin-bottom: 14px">
+          When a function is returned from another function, it keeps a
+          reference to its outer scope — even after the outer function is
+          destroyed.
+        </p>
+        <div
+          style="
+            background: #f8fafc;
+            border: 1px solid #e9eff5;
+            border-radius: 14px;
+            padding: 12px 14px;
+            font-family: &quot;JetBrains Mono&quot;, monospace;
+            font-size: 10px;
+            line-height: 1.7;
+            color: #2c3f5c;
+            margin-bottom: 12px;
+          "
+        >
+          <span class="kw">function</span> <span class="fn">doSum</span>(a) {<br />
+          &nbsp;&nbsp;<span class="kw">return function</span>(b) {<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">return</span> a + b;
+          <span class="cm">// 'a' lives in closure scope</span><br />
+          &nbsp;&nbsp;};<br />
+          }<br />
+          <span class="kw">var</span> addTwo =
+          <span class="fn">doSum</span>(<span class="str">2</span>);
+          <span class="cm">// doSum EC is destroyed here</span><br />
+          addTwo(<span class="str">8</span>);
+          <span class="cm">// but 'a = 2' is still accessible</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 8px; flex: 1">
+          <div
+            style="
+              display: flex;
+              align-items: flex-start;
+              gap: 10px;
+              background: #fff7ed;
+              border: 1px solid #ffedd5;
+              border-radius: 14px;
+              padding: 11px 14px;
+            "
+          >
+            <div
+              style="
+                width: 22px;
+                height: 22px;
+                border-radius: 40px;
+                background: #ffedd5;
+                color: #f59e0b;
+                font-size: 11px;
+                font-weight: 700;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-shrink: 0;
+              "
+            >
+              1
+            </div>
+            <div style="font-size: 12px; color: #3d556e; line-height: 1.5">
+              <code style="font-size: 11px">doSum(2)</code> is called. Its EC is
+              created with <code style="font-size: 11px">a = 2</code>. It
+              returns the inner function. Normally, the EC would be destroyed at
+              this point.
+            </div>
+          </div>
+          <div
+            style="
+              display: flex;
+              align-items: flex-start;
+              gap: 10px;
+              background: #f0f4fe;
+              border: 1px solid #e0e7ff;
+              border-radius: 14px;
+              padding: 11px 14px;
+            "
+          >
+            <div
+              style="
+                width: 22px;
+                height: 22px;
+                border-radius: 40px;
+                background: #e0e7ff;
+                color: #4f46e5;
+                font-size: 11px;
+                font-weight: 700;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-shrink: 0;
+              "
+            >
+              2
+            </div>
+            <div style="font-size: 12px; color: #3d556e; line-height: 1.5">
+              But JavaScript detects that the returned function still references
+              <code style="font-size: 11px">a</code>. So it preserves
+              <code style="font-size: 11px">a = 2</code> in a special
+              <strong style="color: #4f46e5">Closure Scope</strong> instead of
+              erasing it.
+            </div>
+          </div>
+          <div
+            style="
+              display: flex;
+              align-items: flex-start;
+              gap: 10px;
+              background: #ecfdf5;
+              border: 1px solid #d1fae5;
+              border-radius: 14px;
+              padding: 11px 14px;
+            "
+          >
+            <div
+              style="
+                width: 22px;
+                height: 22px;
+                border-radius: 40px;
+                background: #d1fae5;
+                color: #10b981;
+                font-size: 11px;
+                font-weight: 700;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-shrink: 0;
+              "
+            >
+              3
+            </div>
+            <div style="font-size: 12px; color: #3d556e; line-height: 1.5">
+              When <code style="font-size: 11px">addTwo(8)</code> runs later, it
+              looks for <code style="font-size: 11px">a</code>, can't find it
+              locally, follows the scope chain to the Closure Scope, finds
+              <code style="font-size: 11px">a = 2</code>, and returns
+              <code style="font-size: 11px">2 + 8 = 10</code>.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="badge">15 / 16</div>
+    </div>
+
+    <!-- SLIDE 16 — Summary -->
+    <div class="slide" style="background: #fff">
+      <div
+        style="
+          position: absolute;
+          inset: 0;
+          background-image:
+            linear-gradient(#ebf0f6 1px, transparent 1px),
+            linear-gradient(90deg, #ebf0f6 1px, transparent 1px);
+          background-size: 36px 36px;
+          opacity: 0.4;
+        "
+      ></div>
+      <div
+        style="
+          position: relative;
+          z-index: 2;
+          padding: 38px 42px;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+        "
+      >
+        <div>
+          <div
+            style="
+              font-family: &quot;JetBrains Mono&quot;, monospace;
+              font-size: 11px;
+              letter-spacing: 2px;
+              text-transform: uppercase;
+              color: #4f46e5;
+              margin-bottom: 14px;
+            "
+          >
+            Summary — Everything in One Slide
+          </div>
+          <div
+            style="
+              display: grid;
+              grid-template-columns: 1fr 1fr;
+              gap: 9px;
+              margin-bottom: 14px;
+            "
+          >
+            <div
+              style="
+                background: #fafcff;
+                border: 1px solid #eef3fc;
+                border-radius: 14px;
+                padding: 12px 13px;
+              "
+            >
+              <div
+                style="
+                  font-weight: 700;
+                  font-size: 12px;
+                  color: #1e2f44;
+                  margin-bottom: 4px;
+                "
+              >
+                JS Engine
+              </div>
+              <div style="font-size: 11px; color: #617188; line-height: 1.45">
+                V8 and others convert your code to machine language. JIT
+                compilation = fast + debuggable.
+              </div>
+            </div>
+            <div
+              style="
+                background: #fafcff;
+                border: 1px solid #eef3fc;
+                border-radius: 14px;
+                padding: 12px 13px;
+              "
+            >
+              <div
+                style="
+                  font-weight: 700;
+                  font-size: 12px;
+                  color: #1e2f44;
+                  margin-bottom: 4px;
+                "
+              >
+                Execution Context
+              </div>
+              <div style="font-size: 11px; color: #617188; line-height: 1.45">
+                Isolated environment with Variable Object, Scope Chain, and
+                this. One per function call.
+              </div>
+            </div>
+            <div
+              style="
+                background: #fafcff;
+                border: 1px solid #eef3fc;
+                border-radius: 14px;
+                padding: 12px 13px;
+              "
+            >
+              <div
+                style="
+                  font-weight: 700;
+                  font-size: 12px;
+                  color: #1e2f44;
+                  margin-bottom: 4px;
+                "
+              >
+                2 Phases
+              </div>
+              <div style="font-size: 11px; color: #617188; line-height: 1.45">
+                Creation allocates memory. Execution runs code. Hoisting is a
+                product of the Creation Phase.
+              </div>
+            </div>
+            <div
+              style="
+                background: #fafcff;
+                border: 1px solid #eef3fc;
+                border-radius: 14px;
+                padding: 12px 13px;
+              "
+            >
+              <div
+                style="
+                  font-weight: 700;
+                  font-size: 12px;
+                  color: #1e2f44;
+                  margin-bottom: 4px;
+                "
+              >
+                var vs let/const
+              </div>
+              <div style="font-size: 11px; color: #617188; line-height: 1.45">
+                var gets undefined in Creation. let/const enter the TDZ —
+                inaccessible until declared.
+              </div>
+            </div>
+            <div
+              style="
+                background: #fafcff;
+                border: 1px solid #eef3fc;
+                border-radius: 14px;
+                padding: 12px 13px;
+              "
+            >
+              <div
+                style="
+                  font-weight: 700;
+                  font-size: 12px;
+                  color: #1e2f44;
+                  margin-bottom: 4px;
+                "
+              >
+                Call Stack
+              </div>
+              <div style="font-size: 11px; color: #617188; line-height: 1.45">
+                Stacks ECs in LIFO order. Global at the bottom. Each call
+                pushes, each return pops.
+              </div>
+            </div>
+            <div
+              style="
+                background: #fafcff;
+                border: 1px solid #eef3fc;
+                border-radius: 14px;
+                padding: 12px 13px;
+              "
+            >
+              <div
+                style="
+                  font-weight: 700;
+                  font-size: 12px;
+                  color: #1e2f44;
+                  margin-bottom: 4px;
+                "
+              >
+                Closures
+              </div>
+              <div style="font-size: 11px; color: #617188; line-height: 1.45">
+                A returned function retains its outer scope via the Closure
+                Scope, even after the outer EC is destroyed.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div
+            style="
+              background: linear-gradient(135deg, #f5f7ff, #f0fdf4);
+              border: 1px solid #e0e7ff;
+              border-radius: 18px;
+              padding: 14px 18px;
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              margin-bottom: 12px;
+            "
+          >
+            <div>
+              <div
+                style="
+                  font-weight: 800;
+                  font-size: 14px;
+                  color: #0b1c2e;
+                  margin-bottom: 3px;
+                "
+              >
+                Found this useful?
+              </div>
+              <div style="font-size: 11px; color: #5c6f8c">
+                Save this post — follow for more JavaScript deep dives
+              </div>
+            </div>
+            <div
+              style="
+                background: #4f46e5;
+                color: white;
+                padding: 8px 18px;
+                border-radius: 40px;
+                font-weight: 600;
+                font-size: 12px;
+                box-shadow: 0 2px 5px rgba(79, 70, 229, 0.2);
+              "
+            >
+              Follow
+            </div>
+          </div>
+          <div style="display: flex; gap: 8px; flex-wrap: wrap">
+            <div
+              style="
+                font-family: &quot;JetBrains Mono&quot;, monospace;
+                font-size: 10px;
+                padding: 4px 12px;
+                border-radius: 40px;
+                background: #f1f5f9;
+                border: 1px solid #e4e9f0;
+                color: #3c5670;
+              "
+            >
+              #JavaScript
+            </div>
+            <div
+              style="
+                font-family: &quot;JetBrains Mono&quot;, monospace;
+                font-size: 10px;
+                padding: 4px 12px;
+                border-radius: 40px;
+                background: #f1f5f9;
+                border: 1px solid #e4e9f0;
+                color: #3c5670;
+              "
+            >
+              #WebDev
+            </div>
+            <div
+              style="
+                font-family: &quot;JetBrains Mono&quot;, monospace;
+                font-size: 10px;
+                padding: 4px 12px;
+                border-radius: 40px;
+                background: #f1f5f9;
+                border: 1px solid #e4e9f0;
+                color: #3c5670;
+              "
+            >
+              #LearnJS
+            </div>
+            <div
+              style="
+                font-family: &quot;JetBrains Mono&quot;, monospace;
+                font-size: 10px;
+                padding: 4px 12px;
+                border-radius: 40px;
+                background: #f1f5f9;
+                border: 1px solid #e4e9f0;
+                color: #3c5670;
+              "
+            >
+              #JS
+            </div>
+            <div
+              style="
+                font-family: &quot;JetBrains Mono&quot;, monospace;
+                font-size: 10px;
+                padding: 4px 12px;
+                border-radius: 40px;
+                background: #f1f5f9;
+                border: 1px solid #e4e9f0;
+                color: #3c5670;
+              "
+            >
+              #Frontend
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="badge">16 / 16</div>
+    </div>
+
+    <p class="hint">screenshot each 540x540 slide — ready for carousel</p>
+  </body>
+</html>
