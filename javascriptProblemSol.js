@@ -171,3 +171,51 @@ const canJump= (nums)=>{
 }
 
 console.log("Can Jump: ", canJump(nums))
+
+// Try to Do with DFS
+
+const canJumpDFS = (nums) =>{
+    let n=nums.length;
+    function dfs (index){
+        if (index>= n-1){
+            return true;
+        }
+        for(let i=1;i<nums[index]+1;i++){
+            if (dfs(index+i)){
+                return true
+            }
+        }
+        return false
+
+   }
+    return dfs(0);
+
+}
+//Time Compelxity willl be 2^n (exponetial)
+console.log("Can Jump DFS: ", canJumpDFS(nums))
+
+// Try to Do with DFS Memo
+
+const canJumpDFSMemo =(nums)=>{
+    let n= nums.length;
+    let memo={}
+    function dfs(index){
+        if (index>= n-1){
+            return true
+        }
+        if (index in memo){
+            return memo[index]
+        }
+        for(let i=1;i<nums[index];i++){
+            if (dfs(index+i)){
+                memo[index]= true;
+                return true
+            }
+        }
+        memo[index]=false
+        return false
+    }
+    return dfs(0);
+}
+// Time Complexity will be O(n^2) and Space Complexity will be O(n)
+console.log("Can Jump DFS Memo:  ", canJumpDFS(nums))
