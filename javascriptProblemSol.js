@@ -152,3 +152,22 @@ function minRotate(arr){
     return arr[left]
 }
 console.log("Max min Rorate", minRotate([3,4,5,1,2]))
+
+
+// Jump Game (LeetCode 55) — Easy
+// Problem
+// You are given an array nums, where nums[i] is the maximum jump length from index i
+nums = [3,2,1,0,4]
+const canJump= (nums)=>{
+    let n=nums.length;
+    let farthest=0
+    for(let i=0;i<n;i++){
+        if (i>farthest){
+            return false;
+        }
+        farthest=Math.max(farthest, i+nums[i])
+    }
+    return true;
+}
+
+console.log("Can Jump: ", canJump(nums))
